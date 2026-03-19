@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+:root {
+  --color-paper: #f6f1e8;
+  --color-paper-strong: #fffaf1;
+  --color-ink: #111111;
+  --color-mint: #8ae3c0;
+  --color-sand: #d8b98b;
+  --color-coral: #f47d64;
+  --color-line: rgba(255, 250, 241, 0.12);
+  --shadow-card: 0 24px 80px rgba(0, 0, 0, 0.28);
+}
+
+@theme inline {
+  --color-background: var(--color-ink);
+  --color-foreground: var(--color-paper);
+  --font-sans: "Avenir Next", "Segoe UI", sans-serif;
+  --font-mono: "SF Mono", "Monaco", "Consolas", monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(138, 227, 192, 0.18), transparent 28%),
+    radial-gradient(circle at 85% 10%, rgba(244, 125, 100, 0.18), transparent 24%),
+    linear-gradient(180deg, #181713 0%, #111111 100%);
+  color: var(--color-paper);
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: rgba(138, 227, 192, 0.35);
+  color: var(--color-paper-strong);
+}
+
+.grain {
+  position: relative;
+}
+
+.grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 36px 36px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.65), transparent 92%);
+}
+
+.card-sheen {
+  background:
+    linear-gradient(135deg, rgba(255, 250, 241, 0.11), rgba(255, 250, 241, 0.03)),
+    rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--color-line);
+  box-shadow: var(--shadow-card);
+  backdrop-filter: blur(12px);
+}
